@@ -1,0 +1,32 @@
+#!/usr/bin/env bash
+
+REPO="$1"
+
+if [[ -z "$REPO" ]]; then
+	echo "Please enter a repository name"
+	exit 1
+fi
+
+if [[ ! -d "$REPO.git" ]]; then
+	echo "Repo $REPO doesn't exist"
+	exit 1
+fi
+
+cat <<EOF > "$REPO.git/hooks/post-receive"
+GIT_URL="ssh://git@git.wbrawner.com:1022/mnt/data/git/$REPO.git"
+JENKINS_URL="https://cave.wbrawner.com/jenkins"
+while read OLD_COMMIT NEW_COMMIT REF
+do
+    BRANCH=\$(git rev-parse --symbolic --abbrev-ref \$REF)
+    curl -sL "\$JENKINS_URL/git/notifyCommit?url=\$GIT_URL&branches=\$BRANCH&sha1=\$NEW_COMMIT"
+    if [ \$? -eq 0 ]; then
+        echo "Notified Jenkins for commit \$NEW_COMMIT"
+    else
+        echo "Failed to notify Jenkins for commit \$NEW_COMMIT"
+    fi
+done
+EOF
+
+chmod +x "$REPO.git/hooks/post-receive"
+echo "Successfully configured $REPO to notify Jenkins on new commits"
+

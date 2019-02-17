@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+cat <<EOF
+Welcome to the Brawner home private git server. The available commands are listed below:
+
+  delete [REPOSITORY_NAME]                           - delete a repository
+  ls                                                 - list the repositories
+  mirror [REPOSITORY_URL]                            - create a mirror of a repository on another server
+  new [REPOSITORY_NAME] 			     - create a new repository 
+  notify-jenkins [REPOSITORY_NAME]                   - configure a repository to notify Jenkins of new commits
+  rename [OLD_REPOSITORY_NAME] [NEW_REPOSITORY_NAME] - rename a repository
+
+EOF
