@@ -7,6 +7,7 @@ Welcome to the Brawner home private git server. The available commands are liste
   edit-description [REPOSITORY_NAME]                 - edit the description for a repository
   ls                                                 - list the repositories
   mirror [REPOSITORY_URL]                            - create a mirror of a repository on another server
+  mirror-github-org [ORG_NAME]                       - create a mirror of all repositories owned by a GitHub organization
   new [REPOSITORY_NAME] 			     - create a new repository
   notify-jenkins [REPOSITORY_NAME]                   - configure a repository to notify Jenkins of new commits
   rename [OLD_REPOSITORY_NAME] [NEW_REPOSITORY_NAME] - rename a repository

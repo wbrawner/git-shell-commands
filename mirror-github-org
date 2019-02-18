@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+mkdir "$1"
+(
+cd "$1"
+curl -s "https://api.github.com/orgs/$1/repos?per_page=200" | \
+    jq .[].ssh_url | \
+    xargs -n 1 git clone --mirror
+)
+
