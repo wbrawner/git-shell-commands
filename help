@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env sh
 
 cat <<EOF
 Welcome to the Brawner home private git server. The available commands are listed below:
