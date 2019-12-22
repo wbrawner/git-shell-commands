@@ -1,5 +1,7 @@
 #!/usr/bin/env sh
 
+source "$(dirname "$0")/pre-script"
+
 REPO="$1"
 
 if [[ -z "$REPO" ]]; then
