@@ -1,0 +1,18 @@
+#!/usr/bin/env sh
+
+source "$(dirname "$0")/pre-script"
+
+if [[ -z "$1" ]]; then
+	echo "Please enter a repository name"
+	exit 1
+fi
+
+if [[ ! -d "$1" ]]; then
+	echo "Repo $1 doesn't exist"
+	exit 1
+fi
+
+pushd $1
+git symbolic-ref HEAD refs/heads/main
+popd
+
