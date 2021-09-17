@@ -11,5 +11,6 @@ Welcome to the Brawner home private git server. The available commands are liste
   new [REPOSITORY_NAME] 			     - create a new repository
   notify-jenkins [REPOSITORY_NAME]                   - configure a repository to notify Jenkins of new commits
   rename [OLD_REPOSITORY_NAME] [NEW_REPOSITORY_NAME] - rename a repository
+  set-main [REPOSITORY_NAME]                         - rename a repository's master branch to main
 
 EOF
