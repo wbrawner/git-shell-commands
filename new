@@ -7,12 +7,12 @@ if [[ -z "$1" ]]; then
 	exit 1
 fi
 
-if [[ -d "$1.git" ]]; then
+if [[ -d "$1" ]]; then
 	echo "Repo $1 already exists"
 	exit 1
 fi
 
-/usr/bin/git init --bare "$1.git"
-/usr/bin/git -C "$1.git" config http.receivepack true
+/usr/bin/git init --bare "$1"
+/usr/bin/git -C "$1" config http.receivepack true
 echo "Successfully created repository $1"
 

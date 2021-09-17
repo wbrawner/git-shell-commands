@@ -10,11 +10,11 @@ if [[ -z "$2" ]]; then
 	exit 1
 fi
 
-if [[ -d "$2.git" ]]; then
+if [[ -d "$2" ]]; then
 	echo "Repo $2 already exists"
 	exit 1
 fi
 
-mv "$1.git" "$2.git"
+mv "$1" "$2"
 echo "Successfully renamed repository $1 to $2"
 

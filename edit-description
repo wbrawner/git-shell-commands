@@ -7,10 +7,10 @@ if [[ -z "$1" ]]; then
 	exit 1
 fi
 
-if [[ ! -d "$1.git" ]]; then
+if [[ ! -d "$1" ]]; then
 	echo "Repo $1 doesn't exist"
 	exit 1
 fi
 
-vim "$1.git/description"
+vim "$1/description"
 

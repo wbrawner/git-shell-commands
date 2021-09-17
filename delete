@@ -7,11 +7,11 @@ if [[ -z "$1" ]]; then
 	exit 1
 fi
 
-if [[ ! -d "$1.git" ]]; then
+if [[ ! -d "$1" ]]; then
 	echo "Repo $1 doesn't exist"
 	exit 1
 fi
 
-rm -rf "$1.git"
+rm -rf "$1"
 echo "Successfully deleted repository $1"
 
