@@ -12,7 +12,8 @@ if [[ ! -d "$1" ]]; then
 	exit 1
 fi
 
-pushd $1
+RET="$(pwd)"
+cd $1
 git symbolic-ref HEAD refs/heads/main
-popd
+cd "$RET"
 
